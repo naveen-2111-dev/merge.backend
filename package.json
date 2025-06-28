@@ -1,0 +1,23 @@
+{
+  "name": "merge-backend",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.ts",
+  "scripts": {
+    "dev": "nodemon ./index.ts"
+  },
+  "dependencies": {
+    "dotenv": "^16.6.1",
+    "ethers": "^6.14.4",
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10",
+    "zod": "^3.25.67"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "typescript": "^5.8.3"
+  }
+}
