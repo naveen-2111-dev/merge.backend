@@ -12,15 +12,18 @@
     "build": "tsc"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.6.1",
     "ethers": "^6.14.4",
     "express": "^5.1.0",
     "mongodb": "^6.17.0",
     "mongoose": "^8.16.1",
     "nodemon": "^3.1.10",
+    "serverless-http": "^3.2.0",
     "zod": "^3.25.67"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.19",
     "@types/express": "^5.0.3",
     "typescript": "^5.8.3"
   }
