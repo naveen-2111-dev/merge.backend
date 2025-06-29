@@ -13,9 +13,9 @@ export const githubCallback = async (req: Request, res: Response): Promise<void>
         return;
     }
 
-    const { githubId } = result.data;
+    const { code, installation_id } = result.data;
 
-    res.cookie("github_id", githubId, {
+    res.cookie("github_id", installation_id, {
         httpOnly: true,
         secure: true,
         sameSite: "strict",
@@ -25,6 +25,7 @@ export const githubCallback = async (req: Request, res: Response): Promise<void>
     res.status(200).json({
         message: "GitHub ID set in cookie",
         status: true,
-        githubId,
+        installation_id,
+        code,
     });
 };
