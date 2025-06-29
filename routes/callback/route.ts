@@ -13,7 +13,7 @@ export const githubCallback = async (req: Request, res: Response): Promise<void>
         return;
     }
 
-    const { code, installation_id } = result.data;
+    const { installation_id } = result.data;
 
     res.cookie("github_id", installation_id, {
         httpOnly: true,
@@ -22,10 +22,5 @@ export const githubCallback = async (req: Request, res: Response): Promise<void>
         maxAge: 7 * 24 * 60 * 60 * 1000,
     });
 
-    res.status(200).json({
-        message: "GitHub ID set in cookie",
-        status: true,
-        installation_id,
-        code,
-    });
+    res.redirect(`https://mergeprotocol.vercel.app/pools?installation_id=${installation_id}`);
 };
