@@ -1,11 +1,13 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors"
+import cookieParser from "cookie-parser";
 import { githubWebhook } from "./routes/webhook/route";
 import { createBountyPool } from "./routes/createPool/route";
 import { blockBots } from "./middlewares/useragent";
 
 import serverless from "serverless-http";
+import { githubCallback } from "./routes/callback/route";
 
 dotenv.config();
 const allowedOrigins = ["http://localhost:3000", "https://mergeprotocol.vercel.app"];
@@ -22,6 +24,8 @@ app.use(cors({
     }
 }));
 
+app.use(cookieParser());
+
 app.use(express.json({
     verify: (req: any, res, buf, encoding) => {
         req.rawBody = buf;
@@ -29,6 +33,7 @@ app.use(express.json({
 }));
 
 app.post("/webhook/:bountyPool", blockBots, githubWebhook);
+app.post("/call__back", blockBots, githubCallback)
 app.post("/api/createpool", blockBots, createBountyPool)
 
 app.get("/", (req, res) => {
