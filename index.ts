@@ -33,7 +33,7 @@ app.use(express.json({
 }));
 
 app.post("/webhook/:bountyPool", blockBots, githubWebhook);
-app.post("/call__back", blockBots, githubCallback)
+app.get("/call__back", blockBots, githubCallback)
 app.post("/api/createpool", blockBots, createBountyPool)
 
 app.get("/", (req, res) => {
