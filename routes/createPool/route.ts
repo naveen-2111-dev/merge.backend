@@ -19,7 +19,7 @@ export const createBountyPool = async (req: Request, res: Response) => {
 
     res.status(200).json({
         bountyPool: bountyPoolAddress,
-        webhookUrl: `http://localhost:3000/webhook/${bountyPoolAddress}`,
+        webhookUrl: `https://merge-backend.vercel.app/webhook/${bountyPoolAddress}`,
         webhookSecret,
     });
     return;
